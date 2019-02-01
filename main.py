@@ -10,11 +10,9 @@ dataset
 #First List of People
 x = dataset.iloc[:,0:2]
 x.dropna(inplace=True)
-x
 
 #Second List of People
 y = dataset.iloc[:,2:4]
-y
 
 #Imputing the empty entires
 senior = [tuple(i) for i in x.values]
@@ -33,6 +31,7 @@ for i in senior:
 
 y1=[]
 y2=[]
+k=0
 for i in junior:
     if i[1] == 'Male':
         y1.append(junior[k])
@@ -40,3 +39,13 @@ for i in junior:
     else:
         y2.append(junior[k])
         k=k+1
+y1
+y2
+
+shuffle(x1)
+shuffle(x2)
+shuffle(y1)
+shuffle(y2)
+
+map1 = dict(zip(x1,y2))
+map1
