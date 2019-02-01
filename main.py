@@ -1,6 +1,7 @@
 from random import shuffle
 import pandas as pd
 import numpy as np
+import csv
 
 #Importing the dataset
 dataset = pd.read_csv("Fresher's 19.csv")
@@ -39,8 +40,6 @@ for i in junior:
     else:
         y2.append(junior[k])
         k=k+1
-y1
-y2
 
 shuffle(x1)
 shuffle(x2)
@@ -48,4 +47,14 @@ shuffle(y1)
 shuffle(y2)
 
 map1 = dict(zip(x1,y2))
-map1
+map2 = dict(zip(x2,y1))
+
+with open('Boys.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    for key, value in map1.items():
+       writer.writerow([key, value])
+
+with open('Girls.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    for key, value in map2.items():
+       writer.writerow([key, value])
