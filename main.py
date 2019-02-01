@@ -16,15 +16,27 @@ x
 y = dataset.iloc[:,2:4]
 y
 
-
-
 #Imputing the empty entires
-senior=[]
-for i in x:
-    s = (x.iloc[:, 0:1],x.iloc[:,1:1])
-    senior.append(s)
+senior = [tuple(i) for i in x.values]
+junior = [tuple(i) for i in y.values]
 
-senior
+x1=[]
+x2=[]
+k=0
+for i in senior:
+    if i[1] == 'Male':
+        x1.append(senior[k])
+        k=k+1
+    else:
+        x2.append(senior[k])
+        k=k+1
 
-shuffle(x)
-x
+y1=[]
+y2=[]
+for i in junior:
+    if i[1] == 'Male':
+        y1.append(junior[k])
+        k=k+1
+    else:
+        y2.append(junior[k])
+        k=k+1
